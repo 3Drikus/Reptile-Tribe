@@ -40,3 +40,6 @@ Use next/font/google for both fonts
 - Subtle animations only - nothing flashy
 - Rounded corners: 12px consistently
 - One H1 per page only
+- Always use Lucide React for icons, import from 'lucide-react'. Never use emojis as icons.
+- Icon size default: 24px
+- Icon colour: use terracotta #c17f3a for accent icons, sage #8a9e82 for subtle/secondary icons
