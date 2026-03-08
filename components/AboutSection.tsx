@@ -1,22 +1,34 @@
 "use client";
 
-import { Leaf, Users, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const benefits = [
   {
-    icon: <Leaf size={24} color="#c17f3a" />,
+    icon: (
+      <div style={{ position: "relative", width: 140, height: 140 }}>
+        <Image src="/Images/Info-Section-Leaf.webp" alt="" fill style={{ objectFit: "contain" }} />
+      </div>
+    ),
     title: "Ethically Bred",
     description:
       "Every animal is bred with care, never wild caught. We raise healthy, well-adjusted reptiles in proper conditions.",
   },
   {
-    icon: <Users size={24} color="#c17f3a" />,
+    icon: (
+      <div style={{ position: "relative", width: 140, height: 140 }}>
+        <Image src="/Images/Info-Section-community.webp" alt="" fill style={{ objectFit: "contain" }} />
+      </div>
+    ),
     title: "Community First",
     description:
       "We're building a tribe not just a business. Get guidance, share experiences, and connect with fellow enthusiasts.",
   },
   {
-    icon: <MapPin size={24} color="#c17f3a" />,
+    icon: (
+      <div style={{ position: "relative", width: 140, height: 140 }}>
+        <Image src="/Images/Info-Section-Location.webp" alt="" fill style={{ objectFit: "contain" }} />
+      </div>
+    ),
     title: "Based in Pretoria",
     description:
       "Visit us in Pretoria or enquire online. We're real people who are always happy to chat about our animals.",
@@ -162,16 +174,15 @@ export default function AboutSection() {
             <div
               key={b.title}
               style={{
-                backgroundColor: "#162114",
-                border: "1px solid #2a3d28",
-                borderRadius: "12px",
-                padding: "32px",
+                padding: "16px 24px 24px",
               }}
             >
-              {b.icon}
+              <div style={{ height: 140, display: "flex", alignItems: "flex-start" }}>
+                {b.icon}
+              </div>
               <h3
                 style={{
-                  margin: "16px 0 0",
+                  margin: "20px 0 0",
                   fontFamily: "var(--font-fraunces)",
                   fontSize: "20px",
                   fontWeight: 600,
