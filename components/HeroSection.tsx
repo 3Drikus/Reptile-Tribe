@@ -216,16 +216,16 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Spacer for fixed nav */}
-      <div aria-hidden="true" className="h-16 md:h-20" style={{ flexShrink: 0 }} />
+      {/* Spacer for fixed nav — 64px on mobile matches nav height */}
+      <div aria-hidden="true" style={{ height: "64px", flexShrink: 0 }} />
 
       {/* Content area — flex-1 means its bottom edge IS the divider line */}
       <div className="relative flex-1" style={{ minHeight: 0 }}>
 
-        {/* Mobile: ghost image behind text */}
+        {/* Mobile: subtle background chameleon — centre-bottom, low opacity */}
         <div
           aria-hidden="true"
-          className="md:hidden absolute inset-0 pointer-events-none opacity-[0.07]"
+          className="md:hidden absolute inset-0 pointer-events-none opacity-[0.15]"
           style={{ zIndex: 2 }}
         >
           <Image
@@ -234,7 +234,7 @@ export default function HeroSection() {
             fill
             priority
             sizes="100vw"
-            className="object-contain object-center"
+            className="object-contain object-bottom"
           />
         </div>
 
@@ -264,13 +264,13 @@ export default function HeroSection() {
 
         {/* Heading */}
         <div
-          className="absolute inset-0 md:right-[50%] flex items-start md:items-center pt-8 md:pt-0 pl-6 md:pl-16"
+          className="absolute inset-0 md:right-[50%] flex items-start md:items-center pt-[80px] md:pt-0 pl-6 md:pl-16"
           style={{ zIndex: 3 }}
         >
           <div>
             <h1 style={{ margin: 0 }}>
               <span
-                className="block text-[32px] sm:text-[40px] md:text-[96px]"
+                className="block text-[40px] md:text-[96px]"
                 style={{
                   fontFamily: "var(--font-fraunces)",
                   fontWeight: 300,
@@ -283,7 +283,7 @@ export default function HeroSection() {
                 Where Reptiles
               </span>
               <span
-                className="block text-[32px] sm:text-[40px] md:text-[96px]"
+                className="block text-[40px] md:text-[96px]"
                 style={{
                   fontFamily: "var(--font-fraunces)",
                   fontWeight: 700,
@@ -309,6 +309,47 @@ export default function HeroSection() {
             >
               Pretoria, South Africa
             </p>
+
+            {/* CTA buttons */}
+            <div
+              className="flex flex-col sm:flex-row"
+              style={{ marginTop: "32px", gap: "12px" }}
+            >
+              <button
+                type="button"
+                style={{
+                  fontFamily: "var(--font-dm-sans)",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: "#0f1a0e",
+                  backgroundColor: "#c17f3a",
+                  border: "none",
+                  borderRadius: "100px",
+                  padding: "12px 28px",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Explore Animals →
+              </button>
+              <button
+                type="button"
+                style={{
+                  fontFamily: "var(--font-dm-sans)",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  color: "#f0ebe0",
+                  backgroundColor: "transparent",
+                  border: "1px solid #2a3d28",
+                  borderRadius: "100px",
+                  padding: "12px 28px",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                About Us
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -323,8 +364,7 @@ export default function HeroSection() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col md:flex-row md:items-end justify-between px-6 md:px-12 gap-6 md:gap-0"
-          style={{ paddingTop: "48px", paddingBottom: "48px" }}
+          className="flex flex-col md:flex-row md:items-end justify-between px-6 md:px-12 gap-3 md:gap-0 pt-6 pb-6 md:pt-12 md:pb-12"
         >
           {/* Left: featured species boxes */}
           <div className="flex flex-col gap-2">
