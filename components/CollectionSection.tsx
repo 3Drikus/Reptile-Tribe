@@ -122,7 +122,7 @@ export default function CollectionSection() {
   return (
     <section
       aria-labelledby="collection-heading"
-      style={{ backgroundColor: "#0f1a0e", overflow: "hidden" }}
+      style={{ background: "linear-gradient(135deg, #0f1a0e 0%, #1a3018 40%, #162114 70%, #0f1a0e 100%)", overflow: "hidden" }}
       className="py-20 md:py-[120px]"
     >
       {/* Header */}

@@ -39,7 +39,7 @@ export default function AboutSection() {
   return (
     <section
       aria-labelledby="about-heading"
-      style={{ backgroundColor: "#0f1a0e" }}
+      style={{ backgroundColor: "#111a10" }}
       className="py-20 md:py-[120px]"
     >
       <div
@@ -143,7 +143,7 @@ export default function AboutSection() {
               className="w-full h-[280px] md:h-full"
               style={{
                 minHeight: "480px",
-                background: "linear-gradient(160deg, #1e3a1e 0%, #0f1a0e 100%)",
+                background: "linear-gradient(160deg, #162114 0%, #111a10 100%)",
                 border: "1px solid #2a3d28",
                 borderRadius: "16px",
                 display: "flex",
