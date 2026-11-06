@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { Fraunces, DM_Sans } from "next/font/google";
+import { Fraunces, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["Iowan Old Style", "Palatino Linotype", "Palatino", "serif"],
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
+  weight: "variable",
+  display: "swap",
+  fallback: ["Source Sans Pro", "system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fraunces.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${fraunces.variable} ${sourceSans.variable} font-sans antialiased`}>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
         {children}
       </body>
     </html>
