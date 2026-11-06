@@ -8,22 +8,16 @@ const contactMethods = [
     icon: <MessageCircle size={24} color="#c17f3a" />,
     title: "WhatsApp",
     subtitle: "Chat with us directly",
-    buttonLabel: "Open WhatsApp",
-    href: "https://wa.me/placeholder",
   },
   {
     icon: <Mail size={24} color="#c17f3a" />,
     title: "Email Us",
     subtitle: "We reply within 24 hours",
-    buttonLabel: "Send Email",
-    href: "mailto:placeholder@reptile-tribe.com",
   },
   {
     icon: <Facebook size={24} color="#c17f3a" />,
     title: "Facebook",
     subtitle: "Follow our community",
-    buttonLabel: "Visit Page",
-    href: "https://facebook.com/placeholder",
   },
 ];
 
@@ -41,13 +35,7 @@ const inputBase: React.CSSProperties = {
 };
 
 export default function ContactSection() {
-  const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   const focusStyle = (field: string): React.CSSProperties => ({
     ...inputBase,
@@ -117,73 +105,55 @@ export default function ContactSection() {
           className="flex flex-col md:flex-row"
           style={{ gap: "80px", alignItems: "flex-start" }}
         >
-          {/* Left: contact form */}
+          {/* Left: contact fields. Not a form, so nothing can be submitted. */}
           <div className="flex-1 min-w-0 w-full">
-            {submitted ? (
-              <p
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <input
+                type="text"
+                placeholder="Your name"
+                aria-label="Your name"
+                style={focusStyle("name")}
+                onFocus={() => setFocused("name")}
+                onBlur={() => setFocused(null)}
+              />
+              <input
+                type="email"
+                placeholder="Your email"
+                aria-label="Your email"
+                style={focusStyle("email")}
+                onFocus={() => setFocused("email")}
+                onBlur={() => setFocused(null)}
+              />
+              <textarea
+                placeholder="Tell us about what you're looking for..."
+                aria-label="Message"
                 style={{
-                  fontFamily: "var(--font-dm-sans)",
-                  fontSize: "16px",
-                  color: "#8a9e82",
-                  lineHeight: 1.7,
+                  ...focusStyle("message"),
+                  height: "120px",
+                  resize: "none",
                 }}
-              >
-                Thanks! We&apos;ll be in touch soon.
-              </p>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate>
-                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <input
-                    type="text"
-                    placeholder="Your name"
-                    required
-                    aria-label="Your name"
-                    style={focusStyle("name")}
-                    onFocus={() => setFocused("name")}
-                    onBlur={() => setFocused(null)}
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    required
-                    aria-label="Your email"
-                    style={focusStyle("email")}
-                    onFocus={() => setFocused("email")}
-                    onBlur={() => setFocused(null)}
-                  />
-                  <textarea
-                    placeholder="Tell us about what you're looking for..."
-                    required
-                    aria-label="Message"
-                    style={{
-                      ...focusStyle("message"),
-                      height: "120px",
-                      resize: "none",
-                    }}
-                    onFocus={() => setFocused("message")}
-                    onBlur={() => setFocused(null)}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  style={{
-                    width: "100%",
-                    marginTop: "8px",
-                    backgroundColor: "#c17f3a",
-                    color: "#0f1a0e",
-                    fontFamily: "var(--font-dm-sans)",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    padding: "14px",
-                    borderRadius: "8px",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  Send Message
-                </button>
-              </form>
-            )}
+                onFocus={() => setFocused("message")}
+                onBlur={() => setFocused(null)}
+              />
+            </div>
+            <button
+              type="button"
+              style={{
+                width: "100%",
+                marginTop: "8px",
+                backgroundColor: "#c17f3a",
+                color: "#0f1a0e",
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "14px",
+                fontWeight: 600,
+                padding: "14px",
+                borderRadius: "8px",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              Awaiting client input
+            </button>
           </div>
 
           {/* Right: contact info */}
@@ -227,10 +197,7 @@ export default function ContactSection() {
                       {method.subtitle}
                     </p>
                   </div>
-                  <a
-                    href={method.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <span
                     style={{
                       flexShrink: 0,
                       fontFamily: "var(--font-dm-sans)",
@@ -245,17 +212,9 @@ export default function ContactSection() {
                       whiteSpace: "nowrap",
                       transition: "border-color 0.2s, color 0.2s",
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "#c17f3a";
-                      e.currentTarget.style.color = "#c17f3a";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "#2a3d28";
-                      e.currentTarget.style.color = "#8a9e82";
-                    }}
                   >
-                    {method.buttonLabel}
-                  </a>
+                    Awaiting client input
+                  </span>
                 </div>
               ))}
             </div>

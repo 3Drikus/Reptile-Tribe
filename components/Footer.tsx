@@ -5,9 +5,9 @@ import { MessageCircle, Facebook, Mail } from "lucide-react";
 const navLinks = ["Home", "Our Story", "Collection", "Contact"];
 
 const socialLinks = [
-  { icon: <MessageCircle size={16} />, label: "WhatsApp", href: "https://wa.me/placeholder" },
-  { icon: <Facebook size={16} />, label: "Facebook", href: "https://facebook.com/placeholder" },
-  { icon: <Mail size={16} />, label: "Email Us", href: "mailto:placeholder@reptile-tribe.com" },
+  { icon: <MessageCircle size={16} />, label: "WhatsApp" },
+  { icon: <Facebook size={16} />, label: "Facebook" },
+  { icon: <Mail size={16} />, label: "Email Us" },
 ];
 
 export default function Footer() {
@@ -120,11 +120,8 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {socialLinks.map((s) => (
-                <a
+                <span
                   key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -136,12 +133,10 @@ export default function Footer() {
                     textDecoration: "none",
                     transition: "color 0.2s",
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "#f0ebe0"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = "#8a9e82"; }}
                 >
                   {s.icon}
-                  {s.label}
-                </a>
+                  {s.label} Awaiting client input
+                </span>
               ))}
             </div>
           </div>
