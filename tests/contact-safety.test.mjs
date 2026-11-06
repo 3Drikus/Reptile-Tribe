@@ -68,6 +68,11 @@ test("editorial structure is present in source", () => {
   assert.match(layout, /Skip to content/);
   assert.doesNotMatch(bundle, /requestAnimationFrame/);
   assert.doesNotMatch(bundle, /rotateY/);
-  assert.match(readFileSync(join(root, "app/globals.css"), "utf8"), /#0b1210/);
-  assert.match(readFileSync(join(root, "app/globals.css"), "utf8"), /#d4894a/);
+  const css = readFileSync(join(root, "app/globals.css"), "utf8");
+  assert.match(css, /#0b1210/);
+  assert.match(css, /#d4894a/);
+  assert.match(css, /font-family:\s*var\(--font-fraunces\)/);
+  assert.match(css, /font-family:\s*var\(--font-source-sans\)/);
+  assert.doesNotMatch(layout, /Premium reptile breeders/);
+  assert.match(layout, /proposal preview/i);
 });

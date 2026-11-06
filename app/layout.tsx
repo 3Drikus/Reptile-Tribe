@@ -18,9 +18,14 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Reptile Tribe",
+  title: "Reptile Tribe — proposal preview",
   description:
-    "Premium reptile breeders in Pretoria, South Africa. Specialising in geckos, chameleons, iguanas and exotic reptiles.",
+    "Proposal preview for Reptile Tribe. Species, prices, photos, and contact details on this page are not confirmed.",
+  openGraph: {
+    title: "Reptile Tribe — proposal preview",
+    description:
+      "Proposal preview for Reptile Tribe. Species, prices, photos, and contact details on this page are not confirmed.",
+  },
 };
 
 export default function RootLayout({
